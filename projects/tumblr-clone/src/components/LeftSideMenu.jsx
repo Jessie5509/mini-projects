@@ -1,9 +1,10 @@
 import React from "react";
+import leftMenu from "../data/db";
 
 export const LeftSideMenu = () => {
   return (
-    <section className="w-2/5">
-      <nav>
+    <section className="w-3/5">
+      <nav className="flex justify-center">
         <a href="">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -19,8 +20,18 @@ export const LeftSideMenu = () => {
         </a>
       </nav>
       <article>
-        <ul></ul>
+        <ul className="w-max">
+          {leftMenu.map((l) => (
+            <li key={l.id} title={l.name} className="py-3">
+              <a href={l.link} className="flex gap-2 text-gray-400 no-underline">
+                <img src={`img/${l.icon}`}></img>
+                <span>{l.name}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </article>
+      <button className="flex flex-row flex-1 justify-center items-center gap-2 w-[250px] text-base font-bold px-4 py-2 rounded-[40px] bg-[#00B8FF]">Crear</button>
     </section>
   );
 };

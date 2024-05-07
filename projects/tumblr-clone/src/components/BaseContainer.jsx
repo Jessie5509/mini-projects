@@ -5,7 +5,7 @@ import { RightSideMenu } from "./RightSideMenu";
 
 export const BaseContainer = () => {
   return (
-    <section className="flex flex-row justify-center">
+    <section className="flex flex-row justify-center mt-5">
       <LeftSideMenu />
       <PostWall />
       <RightSideMenu />
