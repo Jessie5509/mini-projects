@@ -1,9 +1,23 @@
-import React from 'react'
+import { React } from "react";
 
-export const Modal = () => {
+export const Modal = ({ show, updateBoard }) => {
+  const handleClick = () => {
+    updateBoard();
+  };
+
   return (
-    <div>Modal</div>
-  )
-}
+    <>
+      {show && (
+        <dialog
+          open={show}
+          className="flex flex-col justify-center rounded-lg items-center w-80 h-80 top-1/3 font-main"
+        >
+          <h2 className="mb-9">You complete it!!</h2>
+          <button onClick={handleClick}>Reset game</button>
+        </dialog>
+      )}
+    </>
+  );
+};
 
-export default Modal
+export default Modal;

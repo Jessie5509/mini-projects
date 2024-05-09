@@ -1,23 +1,31 @@
-import React, { useState } from "react";
-import fruits from "../db";
+import React from "react";
 
-export const Card = () => {
-  const [turn, setTurn] = useState(false)
+export const Card = ({
+  onClick,
+  fruit,
+  index,
+  isInactive,
+  isFlipped,
+  isDisabled,
+}) => {
+  const handleClick = () => {
+    !isFlipped && !isDisabled && onClick(index);
+  };
 
   return (
     <>
-      <section className="flex flex-wrap w-64 h-64 content-between justify-between">
-        {fruits.map((f) => {
-          return (
-            <div
-              className="flex items-center justify-center border rounded w-20 h-20 cursor-pointer"
-              key={f.id}
-            >
-              <img className="max-w-[70%]" src={`${f.icon}`}></img>
-            </div>
-          );
-        })}
-      </section>
+      <div
+        onClick={handleClick}
+        className={`card flex items-center justify-center border rounded w-20 h-20 cursor-pointer ${
+          isFlipped ? "is-flipped" : ""
+        } ${isInactive ? "is-inactive" : ""}`}
+      >
+        {isFlipped ? (
+          <img className="max-w-[70%]" src={`../${fruit.icon}`} />
+        ) : (
+          <img className="max-w-[70%]" src="/img/grocery-store.svg" />
+        )}
+      </div>
     </>
   );
 };
