@@ -2,9 +2,9 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    // fontFamily: {
-    //   main: ["Chakra Petch", "sans-serif"],
-    // },
+    fontFamily: {
+      main: ["Sedan SC", "serif"],
+    },
     extend: {},
   },
   plugins: [],
